@@ -46,6 +46,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
+    # filter by day of week if applicable
     df = pd.read_csv(CITY_DATA[city])
 
     # convert the Start Time column to datetime
@@ -66,7 +67,7 @@ def load_data(city, month, day):
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
-    # filter by day of week if applicable
+    
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day'] == day.title()]
